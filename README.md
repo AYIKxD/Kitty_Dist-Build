@@ -102,11 +102,7 @@ To run the API server on your local machine, follow these steps:
     pip install -r requirements.txt
     ```
 
-3.  **Set up Firebase Credentials:**
-    - Obtain your `serviceAccountKey.json` file from your Firebase project settings.
-    - Place this file in the root directory of the project.
-
-4.  **Run the server:**
+3.  **Run the server:**
     ```bash
     python server.py
     ```
