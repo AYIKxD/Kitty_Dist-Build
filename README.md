@@ -2,7 +2,7 @@
 
 This is a simple and efficient Flask-based API server designed to fetch and store solutions for questions using Google's Firebase Realtime Database. The project is deployed and hosted on PythonAnywhere.
 
-**Repository:** [https://github.com/Harshit-Patel01/Kitty-Dist](https://github.com/Harshit-Patel01/Kitty-Dist)
+**Repository:** [https://github.com/Harshit-Patel01/Kitty_Dist](https://github.com/Harshit-Patel01/Kitty_Dist)
 
 ---
 
@@ -92,8 +92,8 @@ To run the API server on your local machine, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Harshit-Patel01/Kitty-Dist.git
-    cd Kitty-Dist
+    git clone https://github.com/Harshit-Patel01/Kitty_Dist.git
+    cd Kitty_Dist
     ```
 
 2.  **Install dependencies:**
