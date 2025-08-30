@@ -1,0 +1,9 @@
+serviceAccountKey.json
+.env
+.vercel
+.vscode
+__pycache__/
+flask_app.py
+.DS_Store
+kitty_icon.ico
+requests.log
