@@ -1,122 +1,64 @@
-# Kitty-Dist API
 
-This is a simple and efficient Flask-based API server designed to fetch and store solutions for questions using Google's Firebase Realtime Database. The project is deployed and hosted on PythonAnywhere.
+# Kitty-Dist Usage Guide
 
-**Repository:** [https://github.com/Harshit-Patel01/Kitty_Dist](https://github.com/Harshit-Patel01/Kitty_Dist)
+## How to Use Kitty_Dist.exe
 
----
-
-## Features
-
-- **Fetch Solutions:** Retrieve a specific solution by its unique question ID.
-- **Add Solutions:** Add new solutions to the database.
-- **Health Check:** A dedicated endpoint to verify the server's operational status.
+1. **Download and extract the files** to a folder on your computer.
+2. **Double-click `Kitty_Dist.exe`** to start the application.
+3. **Log in to CodeTantra** in the browser window that opens.
+4. The app will automatically fetch and submit solutions for your questions.
 
 ---
 
-## Technology Stack
+## If `Kitty_Dist.exe` is Flagged as a Virus
 
-- **Backend:** Python, Flask
-- **Database:** Firebase Realtime Database
-- **Hosting:** PythonAnywhere
+Some antivirus programs may flag the EXE as a false positive. If this happens:
 
----
+1. **Use the Python script instead:**
+    - Make sure you have Python installed.
+    - Install required packages:
+      ```bash
+      pip install -r requirements.txt
+      ```
+    - Run the script:
+      ```bash
+      python Kitty_Dist.py
+      ```
 
-## API Endpoints
-
-### Get a Solution
-
-- **URL:** `/solution/<question_id>`
-- **Method:** `GET`
-- **Description:** Fetches the solution for the specified `question_id`.
-- **Success Response:**
-  ```json
-  {
-    "solution": "The solution data from Firebase."
-  }
-  ```
-- **Error Response:**
-  ```json
-  {
-    "error": "Solution not found"
-  }
-  ```
-
-### Add a New Solution
-
-- **URL:** `/solutions`
-- **Method:** `POST`
-- **Description:** Adds a new question and solution to the database.
-- **Body (raw JSON):**
-  ```json
-  {
-    "id": "unique_question_id",
-    "solution": "The solution to be stored."
-  }
-  ```
-- **Success Response:**
-  ```json
-  {
-    "status": "success",
-    "message": "Solution saved"
-  }
-  ```
-
-### Health Check
-
-- **URL:** `/health`
-- **Method:** `GET`
-- **Description:** A simple endpoint to confirm that the API is running.
-- **Success Response:**
-  ```json
-  {
-    "status": "ok"
-  }
-  ```
+2. **Or use the provided batch file:**
+    - Double-click `run_kitty_dist.bat` (if available) to automatically run the Python script.
+    - If the batch file is missing, create a new file named `run_kitty_dist.bat` with the following content:
+      ```bat
+      @echo off
+      python Kitty_Dist.py
+      pause
+      ```
 
 ---
 
-## Project Structure
+## Notes
 
--   `server.py`: The main Flask application that runs the API server.
--   `Kitty_Dist.py`: A client-side script that automates browser interactions with CodeTantra to fetch and submit solutions.
--   `requirements.txt`: A list of all the Python packages required to run the project.
+- The EXE and Python script provide the same functionality.
+- If you encounter issues, ensure all dependencies from `requirements.txt` are installed.
+- For any problems, check the [GitHub repository](https://github.com/Harshit-Patel01/Kitty_Dist) for updates or troubleshooting tips.
 
 ---
 
-## Local Setup and Usage
+## Contributing
 
-### API Server
+Contributions are welcome! To contribute:
 
-To run the API server on your local machine, follow these steps:
+1. Fork the repository on GitHub.
+2. Create a new branch for your feature or bugfix.
+3. Make your changes and submit a pull request with a clear description.
+4. Ensure your code follows the existing style and passes any tests.
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/Harshit-Patel01/Kitty_Dist.git
-    cd Kitty_Dist
-    ```
+For major changes, please open an issue first to discuss what you would like to change.
 
-2.  **Install dependencies:**
-    Make sure you have Python installed. Then, install the required packages.
-    ```bash
-    pip install -r requirements.txt
-    ```
+---
 
-3.  **Run the server:**
-    ```bash
-    python server.py
-    ```
-    The server will start running on `http://127.0.0.1:5000`.
+## License & Credits
 
-### Client-side Automation
+Do not copy, redistribute, or use this work without giving proper credit to the original author.
 
-The `Kitty_Dist.py` script is used to automate the process of fetching and submitting solutions on CodeTantra.
-
-1.  **Run the script:**
-    ```bash
-    python Kitty_Dist.py
-    ```
-2.  **Log in:**
-    A browser window will open. Log in to your CodeTantra account.
-3.  **Automatic Submissions:**
-    The script will monitor your activity and automatically fetch and submit solutions for the questions you are working on.
+If you use or modify this project, please link back to the original repository and mention the author in your documentation or distribution.
