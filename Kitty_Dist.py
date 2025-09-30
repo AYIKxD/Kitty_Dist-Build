@@ -78,6 +78,7 @@ class SolutionClient:
                     print(f"⚠️ Server error: {data['error']}")
             else:
                 print("The answer for this question is not available. Ask someone who has solved it to open the solution using kitty_dist.")
+                return 'not found', 75
         except Exception as e:
             print("❌ Error fetching solution:", str(e))
 
@@ -468,8 +469,6 @@ class BrowserSession:
                                                         # Check if solution exists on the server
                                                         solution, _ = self.solution_client.get_solution(question_id)
                                                         if "not available" in solution:
-                                                            # Solution doesn't exist, check if user solved it correctly
-                                                            if '"result":0' in str(body) and '"msg":"Success"' in str(body):
                                                                 # Store the solution
                                                                 solution_object = body.get("solution", {})
                                                                 if solution_object and 'filesContentArr' in solution_object:
@@ -480,9 +479,8 @@ class BrowserSession:
                                                                             if solution_data:
                                                                                 self.solution_client.save_solution(question_id, solution_data)
                                                                                 print(f"\n✅ New solution saved for question {question_id}")
-                                                                            break # Save only the first non-read-only file
-                                                            else:
-                                                                print(f"\n⚠️ Solution for question {question_id} is not available. Ask someone who has solved it to open the solution using kitty_dist.")
+                                                                        else:
+                                                                            break
                                                 except Exception as e:
                                                     if self.debug_mode:
                                                         self.log_debug(f"Error processing solution: {str(e)}")
@@ -522,7 +520,7 @@ class BrowserSession:
                                         _, _, question_id = self.solution_client.extract_ids_from_url(url)
                                         if question_id:
                                             solution, _ = self.solution_client.get_solution(question_id)
-                                            if "not available" in solution:
+                                            if "not found" in solution:
                                                 solution_object = body.get('data', {}).get('solution', {})
                                                 if solution_object and 'filesContentArr' in solution_object:
                                                     files = solution_object['filesContentArr']
